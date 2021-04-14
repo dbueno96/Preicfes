@@ -1,0 +1,21 @@
+{
+  "name": "preicfes",
+  "version": "1.0.0",
+  "description": "Desarrollo de herramienta de software para manejar los procesos de una empresa de preicfes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "React",
+    "JS",
+    "Mobile",
+    "First"
+  ],
+  "author": "Daniel F. Bueno G.",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.32.0",
+    "webpack-cli": "^4.6.0"
+  }
+}
