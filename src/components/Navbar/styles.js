@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 
-export const Navbar = styled.nav`
+export const Navbar = styled.nav `
     display: flex; 
     width: 100%;
     min-width: 10rem;
@@ -13,7 +13,7 @@ export const Navbar = styled.nav`
     
     
 `
-export const NavList = styled.ul` 
+export const NavList = styled.ul ` 
     display: inherit;
     border: 1px solid #07404d;
     list-style: none;    
@@ -26,33 +26,32 @@ export const NavList = styled.ul`
         background: transparent;  
     }
 `
-export const ListItem = styled.li`
+export const ListItem = styled.li `
     border-radius: 5px;
 `
-export const Logo = styled.img`
+export const Logo = styled.img `
     border-radius: 15px; 
     width: 10rem;
     height: 90%
 `
 export const IconStyles = {
-    height: '3.5rem',
-    width: '3.5rem',
-    'min-height':  '3.5rem',
-    'min-width': '3.5rem',
-    color: '#fff',
-    margin: 'initial', 
-    padding: '0.5rem',
-    transition: 'all .5s'    
+	height: '3.5rem',
+	width: '3.5rem',
+	'min-height': '3.5rem',
+	'min-width': '3.5rem',
+	color: '#fff',
+	margin: 'initial',
+	padding: '0.5rem',
+	transition: 'all .5s'
 }
 
 export const UserIconStyles = {
-    height: '2.3rem',
-    width: '2.3rem',
-    color: '#fff',
-    'align-self': 'center',
-    'margin-left': 'auto',
-    padding: '0 1rem 0 1rem ',
-    'min-width': '1.4rem',
-    'min-height': '1.4rem', 
+	height: '2.3rem',
+	width: '2.3rem',
+	color: '#fff',
+	'align-self': 'center',
+	'margin-left': 'auto',
+	padding: '0 1rem 0 1rem ',
+	'min-width': '1.4rem',
+	'min-height': '1.4rem',
 }
-

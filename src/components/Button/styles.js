@@ -1,6 +1,6 @@
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 
-export const CustomButton = styled.button`
+export const CustomButton = styled.button `
 display: inline;
 margin: auto; 
 border-radius: 5px; 
