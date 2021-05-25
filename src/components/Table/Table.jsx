@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { capitalize } from '../../utils/utils'
 import { Container, Table, Row, TableBody, TableHead, Head, Cell, IconsDiv, actionStyles } from './styles'
 import { TiPen } from 'react-icons/ti'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillEye } from 'react-icons/ai'
 import { IconContext } from 'react-icons'
+import { useSortableData } from '../../hooks/useSortableData'
 
 
 const matchActionToButton = (key) => {
@@ -34,6 +35,7 @@ const IconContainer = props => {
 }
 
 const Rows = props => {
+	console.log(props)
 	return (
 		<>
 			<Tbody>
@@ -90,29 +92,15 @@ const TableContainer = props => {
 
 
 export const FullTable = props => {
-	const [sortedField, setSortedField] = useState({
-		field: null,
-		order: 'ASC'
-	})
-	let sortedItems = [...props.items]
-
-	sortedItems.sort((a, b) => {
-		if (capitalize(a[sortedField.field]) > capitalize(b[sortedField.field])) {
-			console.log(a[sortedField.field], b[sortedField.field])
-			return sortedField.order === 'ASC' ? 1 : -1
+	const { items } = props
+	const { sortedItems, columnSort, sortedField } = useSortableData({ items })
+	const getClassNamesFor = (name) => {
+		if (!sortedField) {
+			return;
 		}
-		if (capitalize(b[sortedField.field]) > capitalize(a[sortedField.field])) {
-			return sortedField.order === 'ASC' ? -1 : 1
-		}
-		return 0
-	})
-
-	const columnSort = field => {
-		let order = 'ASC'
-		if (sortedField.field === field && sortedField.order === 'ASC')
-			order = 'DESC'
-		setSortedField({ field, order })
+		return sortedField.field === name ? sortedField.order : undefined;
 	}
+	console.log(['funcion', sortedField])
 	return (
 		<TableContainer>
 			<Table>
@@ -122,7 +110,9 @@ export const FullTable = props => {
 							props.headers.map(header => (
 								<Head
 									onClick={() => columnSort(header)}
-									key={header}>
+									key={header}
+									className={getClassNamesFor(header)}
+								>
 									{
 										capitalize(header)
 									}
