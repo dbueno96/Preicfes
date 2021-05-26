@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Nav from './components/Navbar/Navbar'
 import FullTable from './components/Table/Table'
+import Search from './components/Search/Search'
 /* import {
 	globalStyles
 } from './styles/globalStyles' */
@@ -152,13 +153,14 @@ ReactDOM.render( < >
 		['Profesores', 'Cursos', 'Estudiantes', 'Programación', 'Convenios']
 	}
 	/> <
+	Search / >
+	<
 	FullTable items = {
 		testTable1
 	}
 	headers = {
 		Object.keys(testTable1[0])
 	}
-	/>  <
-	/> ,
+	/>  < / > ,
 	document.getElementById('app')
 )

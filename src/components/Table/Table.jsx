@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React from 'react'
 import { capitalize } from '../../utils/utils'
 import { Container, Table, Row, TableBody, TableHead, Head, Cell, IconsDiv, actionStyles } from './styles'
 import { TiPen } from 'react-icons/ti'
