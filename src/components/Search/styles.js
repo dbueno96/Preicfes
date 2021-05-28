@@ -1,14 +1,39 @@
 import styled from 'styled-components'
 
+export const Container = styled.div `
+	
+`
+
 export const SearchDiv = styled.div `
 	display: flex;
-	width: 100%; 
+	width: 95%; 
 	height: 4rem; 
+`
+export const Clear = styled.button `
+		position: absolute;
+		border: none;
+		display: block;
+		width: 15px;
+		height: 15px;
+		line-height: 16px;
+		font-size: 12px;
+		border-radius: 50%;
+		top: 0;
+		bottom: 0;
+		right: 3rem;
+		margin: auto;
+		background: #ddd;
+		padding: 0;
+		outline: none;
+		cursor: pointer;
+		transition: .1s;
 `
 
 export const Form = styled.form `
 	width: 100%;
 	display: flex;
+
+	position: relative;
 `
 export const Input = styled.input `
 	margin: auto 0 auto auto;
@@ -22,6 +47,13 @@ export const Input = styled.input `
     font-family: 'Courier New';
 	font-color: gray;
 	padding: 3px 10px;
+	
+	padding-right: 20px;
+    box-sizing: border-box;
+	&:placeholder-shown + button{
+		opacity: 0;
+		pointer-events: none;
+	}
 	&:focus{
 		outline: none;
 		width: 45%;

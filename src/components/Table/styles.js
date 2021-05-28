@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 
 export const Row = styled.tr `
-    height: 1.2rem;
+    height: ${props => props.height || 1.2}rem;
     max-height: 2rem;
     border: 1px solid transparent;
     

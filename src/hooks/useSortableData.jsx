@@ -13,7 +13,6 @@ export const useSortableData = params => {
 		if (sortedField !== null) {
 			sortedItems.sort((a, b) => {
 				if (capitalize(a[sortedField.field]) > capitalize(b[sortedField.field])) {
-					console.log(a[sortedField.field], b[sortedField.field])
 					return sortedField.order === 'ASC' ? 1 : -1
 				}
 				if (capitalize(b[sortedField.field]) > capitalize(a[sortedField.field])) {

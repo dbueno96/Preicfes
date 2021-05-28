@@ -152,15 +152,17 @@ ReactDOM.render( < >
 	Nav options = {
 		['Profesores', 'Cursos', 'Estudiantes', 'Programación', 'Convenios']
 	}
+	/>  <
+	Search items = {
+		testTable1
+	}
 	/> <
-	Search / >
-	<
 	FullTable items = {
 		testTable1
 	}
 	headers = {
 		Object.keys(testTable1[0])
 	}
-	/>  < / > ,
+	/>  </ > ,
 	document.getElementById('app')
 )
