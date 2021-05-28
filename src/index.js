@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Nav from './components/Navbar/Navbar'
 import FullTable from './components/Table/Table'
 import Search from './components/Search/Search'
+import New from './components/New/New'
 /* import {
 	globalStyles
 } from './styles/globalStyles' */
@@ -156,7 +157,8 @@ ReactDOM.render( < >
 	Search items = {
 		testTable1
 	}
-	/> <
+	/>  <
+	New / > <
 	FullTable items = {
 		testTable1
 	}
