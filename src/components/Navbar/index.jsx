@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Button/Button'
+import Button from '../Button'
 import { IconContext } from 'react-icons'
 import { FaUserCircle } from 'react-icons/fa'
 import { Navbar, Logo, NavList, ListItem, UserIconStyles } from './styles'
