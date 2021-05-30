@@ -15,7 +15,7 @@ export const List = styled.ul `
 	display: flex;
 	flex-wrap: wrap;
 	width: 90%;
-	margin: 0 auto;
+	text-align: -webkit-center
 `
 
 export const ListItem = styled.li `

@@ -6,27 +6,16 @@ import { useFilter } from '../../hooks/useFilter'
 
 const Search = props => {
 	let input = useRef(null)
-	const [query, setQuery] = useState('')
-	const { items } = props
+	const { query, setQuery } = props
 	const clearText = e => {
 		e.preventDefault()
 		input.current.focus()
-		debugger;
 		input.current.value = ''
+		setQuery(input.current.value)
 	}
-
-	let filteredItems = items
-
-
 
 	return (
 		<Container>
-			{
-				filteredItems.filter(
-					row => Object.values(row).filter(
-						value => String(value).toUpperCase().includes(query.toUpperCase())).length > 0
-				).map(row => console.log([row, query]))
-			}
 			<SearchDiv>
 				<Form action="/" method="get">
 					<label htmlFor="header-search">
@@ -36,6 +25,7 @@ const Search = props => {
 						ref={input}
 						placeholder="Search"
 						name="s"
+						value={query}
 						onInput={e => setQuery(e.target.value)}
 					/>
 					<Clear onClick={e => clearText(e)} type="reset" className="reset">&times;</Clear>

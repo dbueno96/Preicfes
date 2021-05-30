@@ -17,7 +17,7 @@ export const Head = styled.th `
     top: 0;
     background: #F0F0F0;
     z-index: 1;
-
+	width: 3rem;
 	&:hover{
         cursor: pointer;
     }
@@ -36,7 +36,7 @@ export const Table = styled.table `
 export const Container = styled.div `
     overflow-x: auto;
     max-height: 20rem;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 `
 
@@ -51,6 +51,14 @@ export const TableBody = styled.tbody `
 export const IconsDiv = styled.div `
     padding: 10px 0px;
     max-height: 4rem;
+`
+
+export const NoData = styled.h1 `
+	font-family: Courier New;
+	font-size: 1.1rem;
+	font-weight: lighter;
+	font-style: italic;
+	color: gray;
 `
 export const actionStyles = `
     height: 1.3rem;

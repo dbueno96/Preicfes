@@ -1,6 +1,6 @@
 import React from 'react'
 import { capitalize } from '../../utils/utils'
-import { Container, Table, Row, TableBody, TableHead, Head, Cell, IconsDiv, actionStyles } from './styles'
+import { Container, Table, Row, TableBody, TableHead, Head, Cell, IconsDiv, NoData, actionStyles } from './styles'
 import { TiPen } from 'react-icons/ti'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillEye } from 'react-icons/ai'
@@ -26,30 +26,38 @@ const IconContainer = props => {
 }
 
 const Rows = props => {
+	const { span } = props
 	return (
-
 		<Tbody>
 			{
-				props.items.map((row, i) => (
-					<Row key={i}>
-						{
-							Object.keys(row).map(key => (
-								<Cell key={key}>
-									{
-										key === 'actions' ?
-											<IconContainer>
-												{
-													row[key].map(action => (matchActionToButton(action)))
-												}
-											</IconContainer>
-											: capitalize(row[key])
-									}
-								</Cell>
-							))
-						}
+				span ?
+					<Row >
+						<Cell colSpan={span}>
+							<NoData>
+								No se encontraron registros para mostrar
+							</NoData>
+						</Cell>
 					</Row>
-				)
-				)
+					: props.items.map((row, i) => (
+						<Row key={i}>
+							{
+								Object.keys(row).map(key => (
+									<Cell key={key}>
+										{
+											key === 'actions' ?
+												<IconContainer>
+													{
+														row[key].map(action => (matchActionToButton(action)))
+													}
+												</IconContainer>
+												: capitalize(row[key])
+										}
+									</Cell>
+								))
+							}
+						</Row>
+					)
+					)
 			}
 		</Tbody>
 	)
@@ -81,7 +89,7 @@ const TableContainer = props => {
 
 
 export const FullTable = props => {
-	const { items } = props
+	const { items, query } = props
 	const { sortedItems, columnSort, sortedField } = useSortableData({ items })
 	const getClassNamesFor = (name) => {
 		if (!sortedField) {
@@ -89,6 +97,10 @@ export const FullTable = props => {
 		}
 		return sortedField.field === name ? sortedField.order : undefined;
 	}
+	const filteredItems = sortedItems.filter(
+		row => Object.values(row).filter(
+			value => String(value).toUpperCase().includes(query.toUpperCase())).length > 0
+	)
 	return (
 		<TableContainer>
 			<Table>
@@ -109,7 +121,11 @@ export const FullTable = props => {
 						}
 					</Row>
 				</Thead>
-				<Rows items={sortedItems} />
+				{
+					filteredItems.length > 0 ?
+						<Rows items={filteredItems} />
+						: <Rows span={props.headers.length} />
+				}
 			</Table>
 		</TableContainer>
 

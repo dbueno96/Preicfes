@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Nav from './components/Navbar'
-import FullTable from './components/Table'
-import Search from './components/Search'
+import FilterableTable from './components/FilterableTable'
 import New from './components/New'
 import DashItem from './components/DashItem'
 import DashBoard from './components/DashBoard'
@@ -165,12 +164,8 @@ ReactDOM.render( < >
 		options
 	}
 	/>  <
-	Search items = {
-		testTable1
-	}
-	/>  <
 	New / > <
-	FullTable items = {
+	FilterableTable items = {
 		testTable1
 	}
 	headers = {
