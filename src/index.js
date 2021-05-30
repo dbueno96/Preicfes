@@ -4,10 +4,19 @@ import Nav from './components/Navbar/Navbar'
 import FullTable from './components/Table/Table'
 import Search from './components/Search/Search'
 import New from './components/New/New'
+import DashItem from './components/DashItem'
+import DashBoard from './components/DashBoard'
+import notFound from './assets/not-found.png'
+import course from './assets/course.png'
+import schedule from './assets/schedule.png'
+import student from './assets/student.png'
+import teacher from './assets/teacher.png'
 /* import {
 	globalStyles
 } from './styles/globalStyles' */
 
+const imgs = [teacher, course, student, schedule, notFound]
+const options = ['Profesores', 'Cursos', 'Estudiantes', 'Clases', 'Convenios']
 const actions = ['EDIT', 'DELETE', 'VIEW']
 const testTable1 = [{
 	"name": "Vane",
@@ -144,14 +153,16 @@ const testTable1 = [{
 	actions
 }]
 
+
+
 ReactDOM.render( < >
 	<
 	Nav options = {
-		['Profesores', 'Cursos', 'Estudiantes', 'Programación', 'Convenios']
+		options
 	}
 	/> <
 	Nav options = {
-		['Profesores', 'Cursos', 'Estudiantes', 'Programación', 'Convenios']
+		options
 	}
 	/>  <
 	Search items = {
@@ -165,6 +176,20 @@ ReactDOM.render( < >
 	headers = {
 		Object.keys(testTable1[0])
 	}
-	/>  </ > ,
+	/>  <
+	DashItem img = {
+		notFound
+	}
+	title = {
+		'Default'
+	}
+	/ >  <
+	DashBoard imgs = {
+		imgs
+	}
+	items = {
+		options
+	}
+	/> < / > ,
 	document.getElementById('app')
 )
