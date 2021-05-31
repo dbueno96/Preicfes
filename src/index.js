@@ -5,6 +5,9 @@ import FilterableTable from './components/FilterableTable'
 import New from './components/New'
 import DashItem from './components/DashItem'
 import DashBoard from './components/DashBoard'
+import {
+	GlobalStyles
+} from './styles/globalStyles'
 import notFound from './assets/not-found.png'
 import course from './assets/course.png'
 import schedule from './assets/schedule.png'
@@ -155,6 +158,8 @@ const testTable1 = [{
 
 
 ReactDOM.render( < >
+	<
+	GlobalStyles / >
 	<
 	Nav options = {
 		options

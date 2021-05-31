@@ -9,8 +9,8 @@ const DashBoard = props => {
 			<List>
 				{
 					items.map((item, i) => (
-						<ListItem>
-							<DashItem key={item} title={item} img={imgs[i]} />
+						<ListItem key={item}>
+							<DashItem title={item} img={imgs[i]} />
 						</ListItem>
 					))
 				}

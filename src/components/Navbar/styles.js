@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 
 
@@ -49,9 +49,9 @@ export const UserIconStyles = {
 	height: '2.3rem',
 	width: '2.3rem',
 	color: '#fff',
-	'align-self': 'center',
-	'margin-left': 'auto',
+	alignSelf: 'center',
+	marginLeft: 'auto',
 	padding: '0 1rem 0 1rem ',
-	'min-width': '1.4rem',
-	'min-height': '1.4rem',
+	minWidt: '1.4rem',
+	minHeight: '1.4rem',
 }

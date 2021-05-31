@@ -10,9 +10,9 @@ import { useFilter } from '../../hooks/useFilter'
 
 const matchActionToButton = (key) => {
 	return {
-		EDIT: <TiPen css={actionStyles} />,
-		DELETE: <BsFillTrashFill css={actionStyles} />,
-		VIEW: <AiFillEye css={actionStyles} />,
+		EDIT: <TiPen key={key} css={actionStyles} />,
+		DELETE: <BsFillTrashFill key={key} css={actionStyles} />,
+		VIEW: <AiFillEye key={key} css={actionStyles} />,
 
 	}[key]
 }
@@ -32,7 +32,7 @@ const Rows = props => {
 		<Tbody>
 			{
 				span ?
-					<Row >
+					<Row>
 						<Cell colSpan={span}>
 							<NoData>
 								No se encontraron registros para mostrar
@@ -98,7 +98,7 @@ export const FullTable = props => {
 		}
 		return sortedField.field === name ? sortedField.order : undefined;
 	}
-	const filteredItems = useFilter({sortedItems, query})
+	const filteredItems = useFilter({ sortedItems, query })
 	return (
 		<TableContainer>
 			<Table>
