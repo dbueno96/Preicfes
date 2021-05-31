@@ -21,10 +21,22 @@ export const Head = styled.th `
 	&:hover{
         cursor: pointer;
     }
+	&:first-child {
+		border-radius: 5px;
+	}
+	&:last-child { 
+		border-radius: 5px;
+	}
 `
 
 export const Cell = styled.td `
     text-align: center;
+	&:first-child {
+		border-radius: 5px;
+	}
+	&:last-child { 
+		border-radius: 5px;
+	}
 `
 
 export const Table = styled.table `
