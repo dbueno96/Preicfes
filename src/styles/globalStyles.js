@@ -19,5 +19,24 @@ export const GlobalStyles = createGlobalStyle `
             overscroll-behavior: none;
             width: 100%;
           }
+
+		  *::-webkit-scrollbar {
+			  width: 5px;
+			  padding-left:5px;
+		  }
+
+		  *::-webkit-scrollbar-track {
+			  background: #f2f2f2;
+			  border-radius: 15px;
+		  }
+		  *::-webkit-scrollbar-thumb {
+			  background: #888;
+			  border-radius: 15px;
+		  }
+		  *::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		  }
+
+		 
     }
 `

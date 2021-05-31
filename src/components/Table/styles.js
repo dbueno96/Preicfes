@@ -17,7 +17,7 @@ export const Head = styled.th `
     top: 0;
     background: #F0F0F0;
     z-index: 1;
-	width: 3rem;
+	width: 5rem;
 	height: 3rem;
 	&:hover{
         cursor: pointer;
