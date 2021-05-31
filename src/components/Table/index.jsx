@@ -5,6 +5,7 @@ import { TiPen } from 'react-icons/ti'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { AiFillEye } from 'react-icons/ai'
 import { useSortableData } from '../../hooks/useSortableData'
+import { useFilter } from '../../hooks/useFilter'
 
 
 const matchActionToButton = (key) => {
@@ -97,10 +98,7 @@ export const FullTable = props => {
 		}
 		return sortedField.field === name ? sortedField.order : undefined;
 	}
-	const filteredItems = sortedItems.filter(
-		row => Object.values(row).filter(
-			value => String(value).toUpperCase().includes(query.toUpperCase())).length > 0
-	)
+	const filteredItems = useFilter({sortedItems, query})
 	return (
 		<TableContainer>
 			<Table>
