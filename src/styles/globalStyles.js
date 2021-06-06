@@ -11,15 +11,15 @@ export const GlobalStyles = createGlobalStyle `
       }
 
     body {
-        body {
-            background: #f0f0f0;
-            height: 100vh;
-            margin: 0 auto;
-            max-width: 500px;
-            overscroll-behavior: none;
-            width: 100%;
-          }
 
+       	
+			background: #fff;
+			height: 100vh;
+			margin: 0 auto;
+			max-width: 70rem;
+			overscroll-behavior: none;
+			width: 100%;
+			
 		  *::-webkit-scrollbar {
 			  width: 5px;
 			  padding-left:5px;

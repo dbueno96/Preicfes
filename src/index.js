@@ -5,6 +5,7 @@ import FilterableTable from './components/FilterableTable'
 import New from './components/New'
 import DashItem from './components/DashItem'
 import DashBoard from './components/DashBoard'
+import Form from './components/Form'
 import {
 	GlobalStyles
 } from './styles/globalStyles'
@@ -190,6 +191,7 @@ ReactDOM.render( < >
 	items = {
 		options
 	}
-	/> < / > ,
+	/>  <
+	Form / > < / > ,
 	document.getElementById('app')
 )
