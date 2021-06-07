@@ -39,9 +39,7 @@ export const GlobalStyles = createGlobalStyle `
 		  *::-webkit-scrollbar-thumb:hover {
 			background: #555;
 		  }
-
-		 
-    }
+	}
 `
 export const RouterLink = styled(Link)
 `

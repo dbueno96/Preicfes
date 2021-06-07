@@ -14,13 +14,14 @@ export const Button = styled.button `
 	border: none; 
 	height: 3rem;
 	width: 50%;
-	margin: auto;
     display: inherit;
     align-items: center;
 	color: #fff;
-	font-size: 1.2rem;
+	font-size: 1rem;
     font-family: 'Courier New';
 	min-width: fit-content;
+	align-self: center;
+    margin: 0 0 0 auto;
 	
 	&:hover {
 		cursor: pointer;

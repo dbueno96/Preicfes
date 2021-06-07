@@ -6,7 +6,7 @@ export const Container = styled.div `
 
 export const SearchDiv = styled.div `
 	display: flex;
-	width: 95%; 
+	width: 100%; 
 	height: 4rem; 
 `
 export const Clear = styled.button `
@@ -97,9 +97,10 @@ export const Input = styled.input `
 		color: lightgray;
 	}
 `
-export const Button = styled.button `
-	height: 2.5rem;
-	width: 2.5rem;
+export const Icon = styled.div `
+	height: 1.5rem;
+	width: 1.5rem;
+	padding: 5px;
 	margin: auto 0;
 	background: none;
 	border: none;

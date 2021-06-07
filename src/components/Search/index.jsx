@@ -1,7 +1,6 @@
-import React, { useRef, useState } from 'react'
-import { SearchDiv, Form, Button, Input, Container, Clear, iconStyles } from './styles'
+import React, { useRef } from 'react'
+import { SearchDiv, Form, Icon, Input, Container, Clear, iconStyles } from './styles'
 import { ImSearch } from 'react-icons/im'
-import { useFilter } from '../../hooks/useFilter'
 
 
 const Search = props => {
@@ -29,9 +28,9 @@ const Search = props => {
 						onInput={e => setQuery(e.target.value)}
 					/>
 					<Clear onClick={e => clearText(e)} type="reset" className="reset">&times;</Clear>
-					<Button type="submit">
+					<Icon >
 						<ImSearch css={iconStyles}></ImSearch>
-					</Button>
+					</Icon>
 				</Form>
 
 			</SearchDiv>
