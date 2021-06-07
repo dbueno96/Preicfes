@@ -1,17 +1,19 @@
 import React from 'react'
-import { Container, Pict, Title, Img } from "./styles"
+import { Container, Pict, Title, Img } from './styles'
+import { RouterLink } from '../../styles/globalStyles'
 const DashItem = props => {
 	const { title, img } = props
 	return (
-		<Container>
-
-			<Title>
-				{title}
-			</Title>
-			<Pict>
-				<Img alt={title} src={img} />
-			</Pict>
-		</Container>
+		<RouterLink to={`/ver/${title}`}>
+			<Container>
+				<Title>
+					{title}
+				</Title>
+				<Pict>
+					<Img alt={title} src={img} />
+				</Pict>
+			</Container>
+		</RouterLink>
 	)
 }
 

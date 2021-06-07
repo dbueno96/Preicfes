@@ -1,7 +1,10 @@
-import {
+import styled, {
 	createGlobalStyle
 } from 'styled-components'
 
+import {
+	Link
+} from 'react-router-dom'
 export const GlobalStyles = createGlobalStyle `
     html {
         font-family: Courier New, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -39,4 +42,9 @@ export const GlobalStyles = createGlobalStyle `
 
 		 
     }
+`
+export const RouterLink = styled(Link)
+`
+	text-decoration: none;
+	color: ${props => props.color  || 'inherit;'}
 `

@@ -9,6 +9,7 @@ export const Container = styled.div `
 	align-items: center;
 	border-radius: 5px;
 	border: 2px solid transparent;
+	padding: 2px;
 	&:hover {
 		border-radius: 5px;
 		border: 1px solid #07404d;
