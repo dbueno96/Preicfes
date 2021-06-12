@@ -1,10 +1,20 @@
 import styled from 'styled-components'
-
-
+import {
+	SiGoogleclassroom
+} from 'react-icons/si'
+import {
+	GiTeacher,
+	GiRead,
+	GiLinkedRings,
+	GiOpenBook
+} from 'react-icons/gi'
+import {
+	BiLoaderCircle
+} from 'react-icons/bi'
 export const Container = styled.div `
 	display: flex;
     flex-direction: column;
-	width: 7rem; 
+	width: 12rem; 
 	height: 12rem;
 	align-items: center;
 	border-radius: 5px;
@@ -33,4 +43,50 @@ export const Img = styled.img `
 	width: 100%;	
 
 	
+`
+
+export const Classroom = styled(SiGoogleclassroom)
+`
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
+`
+export const Teachers = styled(GiTeacher)
+`
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
+`
+
+export const Companies = styled(GiLinkedRings)
+`
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
+`
+export const Courses = styled(GiOpenBook)
+`
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
+`
+
+export const Students = styled(GiRead)
+`
+
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
+`
+export const Default = styled(BiLoaderCircle)
+`
+	color: ${props => props.theme.bg.alt2}; 
+	&:hover {
+		color: black;
+	}
 `

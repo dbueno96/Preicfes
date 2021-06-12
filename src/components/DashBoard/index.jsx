@@ -3,14 +3,14 @@ import DashItem from '../DashItem'
 import { Container, List, ListItem } from './styles'
 
 const DashBoard = props => {
-	const { items, imgs } = props
+	const { items } = props
 	return (
 		<Container>
 			<List>
 				{
-					items.map((item, i) => (
+					items.map((item) => (
 						<ListItem key={item}>
-							<DashItem title={item} img={imgs[i]} />
+							<DashItem title={item} />
 						</ListItem>
 					))
 				}
