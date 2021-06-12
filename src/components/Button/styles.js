@@ -5,7 +5,7 @@ display: inline;
 margin: auto; 
 border-radius: 5px; 
 overflow-x: hidden;
-background: #fff;
+background: ${props => props.theme.bg.alt};
 font-size: 1.3rem;
 font-family: 'Courier New';
 

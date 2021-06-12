@@ -9,7 +9,7 @@ export const NewContainer = styled.div `
 `
 
 export const Button = styled.button `
-	background: #07404d; 
+	background: ${props => props.theme.bg.main}; 
 	border-radius: 5px;
 	border: none; 
 	height: 3rem;

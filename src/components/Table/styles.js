@@ -7,7 +7,7 @@ export const Row = styled.tr `
     border: 1px solid transparent;
     
     tbody &:hover {
-       background: #F0F0F0;
+       background: ${props => props.theme.tb.hover};
     }
 `
 
@@ -15,28 +15,29 @@ export const Head = styled.th `
     text-align: center;
     position: sticky;
     top: 0;
-    background: #F0F0F0;
+    background: ${props => props.theme.tb.th};
     z-index: 1;
 	width: 5rem;
 	height: 3rem;
+	color: ${props=> props.theme.text.alt}
 	&:hover{
         cursor: pointer;
     }
 	&:first-child {
-		border-radius: 5px;
+		border-radius:  5px 0px 0px 5px;
 	}
 	&:last-child { 
-		border-radius: 5px;
+		border-radius: 0px 5px 5px 0px;
 	}
 `
 
 export const Cell = styled.td `
     text-align: center;
 	&:first-child {
-		border-radius: 5px;
+		border-radius: 5px 0px 0px 5px;
 	}
 	&:last-child { 
-		border-radius: 5px;
+		border-radius:0px 5px 5px 0px;
 	}
 `
 

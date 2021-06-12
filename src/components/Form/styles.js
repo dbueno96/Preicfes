@@ -44,8 +44,8 @@ export const Button = styled.button `
 	margin-left: auto;
 	padding: 8px 16px;
 	border: none;
-	background: ${props => props.type  === 'submit'? '#07404d': '#333'};
-	color: #f2f2f2;
+	background: ${props => props.type  === 'submit'? props.theme.bg.main: props.theme.bg.alt2};
+	color: ${props => props.theme.text.main};
 	text-transform: uppercase;
 	letter-spacing: .09em;
 	border-radius: 2px;
@@ -64,7 +64,7 @@ export const Select = styled.select `
 	flex: 1 0 auto;
 	padding 15px 0px;
 	border: none;
-	background: #FFFFFF;
+	background: ${props => props.theme.bg.alt};
 	border-radius: 2px;
 	font-family: inherit;
 	color: gray;

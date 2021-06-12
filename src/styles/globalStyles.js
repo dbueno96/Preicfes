@@ -14,9 +14,7 @@ export const GlobalStyles = createGlobalStyle `
       }
 
     body {
-
-       	
-			background: #fff;
+			background: ${props=> props.theme.bg.alt};
 			height: 100vh;
 			margin: 0 auto;
 			max-width: 70rem;
@@ -41,8 +39,7 @@ export const GlobalStyles = createGlobalStyle `
 		  }
 	}
 `
-export const RouterLink = styled(Link)
-`
+export const RouterLink = styled(Link)`
 	text-decoration: none;
 	color: ${props => props.color  || 'inherit;'}
 `

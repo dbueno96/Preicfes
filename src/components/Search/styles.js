@@ -22,7 +22,7 @@ export const Clear = styled.button `
 		bottom: 0;
 		right: 3rem;
 		margin: auto;
-		background: #ddd;
+		background: ${props => props.theme.scroll.track};
 		padding: 0;
 		outline: none;
 		cursor: pointer;
@@ -102,11 +102,9 @@ export const Icon = styled.div `
 	width: 1.5rem;
 	padding: 5px;
 	margin: auto 0;
-	background: none;
+	background: transparent;
 	border: none;
-	&:hover {
-		cursor: pointer
-	}
+
 `
 
 export const iconStyles = `

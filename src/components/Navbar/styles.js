@@ -6,7 +6,7 @@ export const Navbar = styled.nav `
     display: flex; 
     width: 100%;
     min-width: 10rem;
-    background: #07404d;
+    background: ${props => props.theme.bg.main};
     border-radius: 5px;
     height:100%;
     }
@@ -15,7 +15,7 @@ export const Navbar = styled.nav `
 `
 export const NavList = styled.ul ` 
     display: inherit;
-    border: 1px solid #07404d;
+    border: 1px solid ${props => props.theme.bg.main};
     list-style: none;    
     padding: 0 1.5rem 0 0;
     overflow: auto;
