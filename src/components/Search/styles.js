@@ -10,23 +10,23 @@ export const SearchDiv = styled.div `
 	height: 4rem; 
 `
 export const Clear = styled.button `
-		position: absolute;
-		border: none;
-		display: block;
-		width: 15px;
-		height: 15px;
-		line-height: 16px;
-		font-size: 12px;
-		border-radius: 50%;
-		top: 0;
-		bottom: 0;
-		right: 3rem;
-		margin: auto;
-		background: ${props => props.theme.scroll.track};
-		padding: 0;
-		outline: none;
-		cursor: pointer;
-		transition: .1s;
+	position: absolute;
+	border: none;
+	display: block;
+	width: 15px;
+	height: 15px;
+	line-height: 16px;
+	font-size: 12px;
+	border-radius: 50%;
+	top: 0;
+	bottom: 0;
+	right: 3rem;
+	margin: auto;
+	background: ${props => props.theme.scroll.track};
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+	transition: .1s;
 `
 
 export const Form = styled.form `
@@ -50,11 +50,11 @@ export const Input = styled.input `
 	
 	padding-right: 20px;
     box-sizing: border-box;
-	&:placeholder-shown + button{
+	&:placeholder-shown + button {
 		opacity: 0;
 		pointer-events: none;
 	}
-	&:focus{
+	&:focus {
 		outline: none;
 		width: 45%;
 		::-webkit-input-placeholder {

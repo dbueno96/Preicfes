@@ -27,7 +27,7 @@ const Search = props => {
 						value={query}
 						onInput={e => setQuery(e.target.value)}
 					/>
-					<Clear onClick={e => clearText(e)} type="reset" className="reset">&times;</Clear>
+					<Clear onClick={e => clearText(e)} >&times;</Clear>
 					<Icon >
 						<ImSearch css={iconStyles}></ImSearch>
 					</Icon>

@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, useRouteMatch } from 'react-router-dom'
 import Home from './pages/Home'
 import List from './pages/List'
+import Register from './pages/Register'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/globalStyles'
 import { RegularTheme } from './styles/themes'
@@ -15,8 +16,11 @@ const App = () => {
 					<Route exact path='/'>
 						<Home />
 					</Route>
-					<Route path='/ver/:title'>
+					<Route exact path='/:title'>
 						<List />
+					</Route>
+					<Route exact path='/:title/registrar'>
+						<Register />
 					</Route>
 				</Switch>
 			</Router>
