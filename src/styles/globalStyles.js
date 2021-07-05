@@ -39,7 +39,9 @@ export const GlobalStyles = createGlobalStyle `
 		  }
 	}
 `
-export const RouterLink = styled(Link)`
+export const RouterLink = styled(Link)
+`
 	text-decoration: none;
-	color: ${props => props.color  || 'inherit;'}
+	color: ${props => props.color  || 'inherit;'};
+	display: inherit;
 `

@@ -35,5 +35,5 @@ export const iconStyles = `
 	width: 2rem; 
 	color: #fff;
 	margin: 0 0 0 auto;
-	
+	align-self: center;
 `

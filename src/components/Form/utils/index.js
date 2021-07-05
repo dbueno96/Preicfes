@@ -126,7 +126,7 @@ export const isValidMinLength = (val, minLength) => (
 )
 
 export const isValidEmail = (val) => {
-	const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+	const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 	if (val.match(mailformat)) {
 		return null
 	}
