@@ -1,12 +1,13 @@
 import React from 'react'
-import { Label } from '../styles'
-import { Input } from './styles'
+import { Label, Input, P } from '../styles'
 
 const CheckBoxField = props => {
-	const { fieldId, label, type, text} = props
+	const { fieldId, label, type, text } = props
 	return (
-		<>
-			P
+		<>	
+			<P>
+				{text}
+			</P>
 			<Input type={type} />
 			<Label htmlFor={fieldId} id={fieldId}>{label}</Label>
 		</>
