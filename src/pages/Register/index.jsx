@@ -3,6 +3,7 @@ import { useRouteMatch } from 'react-router-dom'
 import Form from '../../components/Form'
 import Navbar from '../../components/Navbar'
 import Title from '../../components/Title'
+import { formEmpleados } from '../../testData'
 
 const Register = () => {
 	const { url } = useRouteMatch(),
@@ -11,7 +12,7 @@ const Register = () => {
 		<>
 			<Navbar options={items} />
 			<Title title={url} />
-			<Form />
+			<Form fields={formEmpleados} />
 		</>
 
 	)

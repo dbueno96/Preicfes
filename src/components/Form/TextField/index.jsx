@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Input, Label, ErrorsDiv, ErrorList, Error, Message } from '../styles'
 import { useFieldError } from '../../../hooks/useFieldError'
 import { validateTextField } from '../utils'
 const TField = props => {
-	const { type, label, id, placeholder, disabled, maxLength, minLength, required } = props
-	const [value, setValue] = useState('')
+	const { type, label, id, placeholder, disabled, maxLength, minLength, required, value, setValue } = props
 	const { errors, setErrors } = useFieldError(null)
 	const handleInput = e => {
 		console.log('valid', type)
 		validateTextField({ input: e.target.value, setErrors, maxLength, minLength, type, required })
-		setValue(e.target.value)
+		setValue(id, e.target.value)
 	}
 	return (
 		<>

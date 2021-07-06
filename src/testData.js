@@ -965,3 +965,41 @@ export const data = {
 		'description': 'Lysis of tongue adhesion'
 	}]
 }
+
+export const formEmpleados = [{
+	id: 'firstName',
+	placeholder: 'Ingrese sus nombres',
+	type: 'text',
+	required: true,
+	label: 'Nombres'
+}, {
+	id: 'lastName',
+	placeholder: 'Ingrese sus apellidos',
+	type: 'text',
+	required: true,
+	label: 'Apellidos',
+	minLength: 5,
+	maxLength: 15
+}, {
+	id: 'age',
+	placeholder: 'Ingrese su edad',
+	type: 'number',
+	label: 'Edad',
+	min: '18',
+}, {
+	id: 'email',
+	placeholder: 'Ingrese su correo electrónico',
+	label: 'Email',
+	type: 'email',
+	required: true
+}, {
+	id: 'roleList',
+	placeholder: 'Seleccione su rol',
+	label: 'Rol',
+	type: 'list',
+	options: [
+		'Admin',
+		'Product Owner',
+		'Teacher'
+	]
+}]

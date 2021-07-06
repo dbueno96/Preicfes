@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { validateNumberField } from '../utils'
 import { Input, Label, ErrorsDiv, ErrorList, Error, Message } from '../styles'
 import { useFieldError } from '../../../hooks/useFieldError'
 
 const NumberField = props => {
-	const { type, label, id, placeholder, disabled, required, min, max, maxLength, step } = props
-	const [value, setValue] = useState('')
+	const { type, label, id, placeholder, disabled, required, min, max, maxLength, step, value, setValue } = props
 	const { errors, setErrors } = useFieldError(null)
 	const handleInput = e => {
 		validateNumberField({ input: e.target.value, setErrors, min, max, required })
-		setValue(e.target.value)
+		setValue(id, e.target.value)
 	}
 
 	return (
