@@ -46,6 +46,11 @@ export const Label = styled.label `
 		flex: 1 0 auto;
 		width: 60%;
 	}
+
+	&::after {
+		color: red;
+		content: '${props => props.required? '*' : ''}';
+	}
 `
 export const P = styled.p `
 	flex: 1 0 auto;

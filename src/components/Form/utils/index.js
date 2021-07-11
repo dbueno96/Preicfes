@@ -3,6 +3,8 @@ export const isValidNumberField = args => {
 		input,
 		min,
 		max,
+		maxLength,
+		minLength,
 		required
 	} = args
 	let result = {}
@@ -16,7 +18,13 @@ export const isValidNumberField = args => {
 	result = min && isValidMinValue(input, min)
 	if (result)
 		return result
-
+	debugger
+	result = minLength && isValidMinLength(input, minLength)
+	if (result)
+		return result
+	result = maxLength && isValidMaxLength(input, maxLength - 1)
+	if (result)
+		return result
 	return null
 }
 
@@ -29,7 +37,6 @@ export const isValidTextField = args => {
 		type,
 	} = args
 	let result = null
-	console.log('type', type)
 	result = required && isRequired(input, required)
 	if (result)
 		return result
@@ -67,9 +74,10 @@ export const validateTextField = args => {
 		input,
 		type,
 		setErrors,
-		value
+		value,
+		id
 	} = args
-	setErrors(isValidTextField({
+	setErrors(id, isValidTextField({
 		input,
 		maxLength,
 		minLength,
@@ -82,15 +90,20 @@ export const validateNumberField = args => {
 	const {
 		min,
 		max,
+		maxLength,
+		minLength,
 		required,
 		setErrors,
-		setValue
+		setValue,
+		id
 	} = args
 	let input = parseFloat(args.input)
 
-	setErrors(isValidNumberField({
+	setErrors(id, isValidNumberField({
 		min,
 		max,
+		maxLength,
+		minLength,
 		required,
 		input,
 		setValue
@@ -112,14 +125,14 @@ export const isValidMaxValue = (val, max) => (
 )
 
 export const isValidMaxLength = (val, maxLength) => (
-	val.length <= maxLength ? null : {
+	String(val).length <= maxLength ? null : {
 		type: 'Longitud máxima',
 		message: `La longitud debe ser menor a ${maxLength + 1} caracteres`
 	}
 )
 
 export const isValidMinLength = (val, minLength) => (
-	val.length >= minLength ? null : {
+	String(val).length >= minLength ? null : {
 		type: 'Longitud mínima',
 		message: `La longitud debe ser mayor a ${minLength - 1} caracteres`
 	}

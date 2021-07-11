@@ -1,40 +1,45 @@
 import React, { useState } from 'react'
 import TField from './TextField'
 import NumberField from './NumberField'
+import DateField from './DateField'
 import { Label, OuterList, Button, Input, Field, DefaultForm, Container, Buttons } from './styles'
 const Form = props => {
 	const { fields } = props,
 		[values, setValues] = useState({}),
+		[errors, setErrors] = useState({}),
+		handleError = (field, error) => {
+			setErrors({ ...errors, [field]: error })
+		},
 		handleOnChange = (fieldId, value) => {
 			setValues({ ...values, [fieldId]: value })
 		},
 		matchConfigToField = config => {
 			if (['text', 'email'].includes(config.type))
-				return <TField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} />
+				return <TField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
 			if (['number', 'decimal', 'currency'].includes(config.type))
-				return <NumberField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} />
+				return <NumberField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
+			if (['date', 'type', 'datetime'].includes(config.type))
+				return <DateField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
 			return (
 				<>
 					<Label htmlFor={config.id}>{config.label}</Label>
-					<Input list={config.id} id={config.id} placeholder={config.placeholder} value={values[config.id]} setValue={handleOnChange} />
-					<datalist id={config.id}>
+					<Input list={`${config.id}List`} id={config.id} placeholder={config.placeholder} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
+					<datalist id={`${config.id}List`}>
 						{
-							config.options.map((option, i) => (
-								<option value={i} key={option}>{option}</option>
-							))
+							config.options.map((option, i) => {
+								return (
+									<option value={i} key={option}>{option}</option>
+								)
+							})
 						}
 					</datalist>
 				</>
 			)
 		},
-		onReset = fields => {
-			fields.map(field => {
-				console.log(field.id)
-				handleOnChange(field.id, '')
-			})
+		onReset = () => {
+			setValues({})
+			setErrors({})
 		}
-
-
 	return (
 		<Container>
 			<DefaultForm>
@@ -49,7 +54,7 @@ const Form = props => {
 						))
 					}
 					<Buttons>
-						<Button type='reset' onClick={() => onReset(fields)} >Reset</Button>
+						<Button type='reset' onClick={onReset} >Reset</Button>
 						<Button type='submit'>Submit</Button>
 					</Buttons>
 				</OuterList>

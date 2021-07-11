@@ -1003,3 +1003,95 @@ export const formEmpleados = [{
 		'Teacher'
 	]
 }]
+
+export const formClases = [{
+	id: 'course',
+	required: true,
+	placeholder: 'Seleccione el curso para la clase',
+	label: 'Curso',
+	type: 'list',
+	options: [
+		'Lectura crítica',
+		'Ciencias Naturales',
+		'Inglés',
+		'Competencias ciudadanas',
+		'Matemática'
+	]
+}, {
+	id: 'startDate',
+	required: true,
+	placeholder: 'Escoge la fecha de inicio de clase',
+	label: 'Fecha de inicio',
+	type: 'date',
+}, {
+	id: 'duration',
+	required: true,
+	placeholder: 'Ingrese la duración en minutos',
+	label: 'Duración',
+	type: 'number',
+	min: 30,
+	max: 240
+}, {
+	id: 'location',
+	required: true,
+	placeholder: 'Indica la ubicación de la clase',
+	label: 'Ubicación',
+	type: 'text',
+	minLength: 10,
+	maxLength: 300,
+}, {
+	id: 'teacher',
+	required: true,
+	placeholder: 'Selecciona el profesor para la clase',
+	label: 'Profesor asignado para la clase',
+	type: 'list',
+	options: [
+		'Vanessa Vazquez',
+		'Erika Valois'
+	]
+}]
+
+export const formEstudiante = [{
+	id: 'firstName',
+	required: true,
+	label: 'Nombres',
+	placeholder: 'Ingrese el nombre del estudiante',
+	type: 'text',
+}, {
+	id: 'lastName',
+	required: true,
+	label: 'Apellidos',
+	placeholder: 'Ingrese el apellido del estudiante',
+	type: 'text',
+}, {
+	id: 'email',
+	required: true,
+	label: 'Email',
+	placeholder: 'Ingrese el correo electrónico',
+	type: 'email'
+}, {
+	id: 'address',
+	required: true,
+	label: 'Dirección',
+	placeholder: 'Ingrese la dirección',
+	type: 'text'
+}, {
+	id: 'phone1',
+	required: true,
+	label: 'Telefono de contacto',
+	placeholder: 'Ingrese un número de contacto',
+	type: 'number',
+	minLength: 6,
+	maxLength: 18,
+}, {
+	id: 'phone2',
+	label: 'Telefono',
+	placeholder: 'Ingrese un número de contacto alternativo',
+	type: 'number',
+	minlength: 6,
+	maxLength: 18,
+}]
+
+export const formCurso = []
+
+export const formConvenio = []

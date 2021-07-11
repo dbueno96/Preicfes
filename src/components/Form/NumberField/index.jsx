@@ -1,19 +1,18 @@
 import React from 'react'
+import ErrorMessage from '../ErrorMessage'
 import { validateNumberField } from '../utils'
-import { Input, Label, ErrorsDiv, ErrorList, Error, Message } from '../styles'
-import { useFieldError } from '../../../hooks/useFieldError'
+import { Input, Label } from '../styles'
 
 const NumberField = props => {
-	const { type, label, id, placeholder, disabled, required, min, max, maxLength, step, value, setValue } = props
-	const { errors, setErrors } = useFieldError(null)
+	const { type, label, id, placeholder, disabled, required, min, max, maxLength, minLength, step, value, setValue, errors, setErrors } = props
 	const handleInput = e => {
-		validateNumberField({ input: e.target.value, setErrors, min, max, required })
+		validateNumberField({ input: e.target.value, setErrors, min, max, maxLength, minLength, required, id })
 		setValue(id, e.target.value)
 	}
 
 	return (
 		<>
-			<Label htmlFor={id}> {label} </Label>
+			<Label required={required} htmlFor={id}> {label} </Label>
 			<Input
 				type={type}
 				id={id}
@@ -22,20 +21,13 @@ const NumberField = props => {
 				disabled={disabled}
 				required={required}
 				step={step || 1}
-				maxLength={maxLength || 8}
+				maxLength={maxLength}
+				minLength={minLength}
 				onInput={e => handleInput(e)}
 			/>
 			{
-				errors ?
-					<ErrorsDiv>
-						<ErrorList>
-							<Error>
-								<Message>
-									{errors.message}
-								</Message>
-							</Error>
-						</ErrorList>
-					</ErrorsDiv>
+				errors[id] ?
+					<ErrorMessage message={errors[id].message} />
 					: null
 			}
 

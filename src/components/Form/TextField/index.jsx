@@ -1,18 +1,16 @@
 import React from 'react'
-import { Input, Label, ErrorsDiv, ErrorList, Error, Message } from '../styles'
-import { useFieldError } from '../../../hooks/useFieldError'
+import ErrorMessage from '../ErrorMessage'
+import { Input, Label } from '../styles'
 import { validateTextField } from '../utils'
 const TField = props => {
-	const { type, label, id, placeholder, disabled, maxLength, minLength, required, value, setValue } = props
-	const { errors, setErrors } = useFieldError(null)
+	const { type, label, id, placeholder, disabled, maxLength, minLength, required, value, setValue, errors, setErrors } = props
 	const handleInput = e => {
-		console.log('valid', type)
-		validateTextField({ input: e.target.value, setErrors, maxLength, minLength, type, required })
+		validateTextField({ input: e.target.value, setErrors, maxLength, minLength, type, required, id })
 		setValue(id, e.target.value)
 	}
 	return (
 		<>
-			<Label htmlFor={id} >{label} </Label>
+			<Label required={required} htmlFor={id} >{label} </Label>
 			<Input
 				type={type}
 				id={id}
@@ -25,16 +23,8 @@ const TField = props => {
 				onInput={e => handleInput(e)}
 			/>
 			{
-				errors ?
-					<ErrorsDiv>
-						<ErrorList>
-							<Error>
-								<Message>
-									{errors.message}
-								</Message>
-							</Error>
-						</ErrorList>
-					</ErrorsDiv>
+				errors[id] ?
+					<ErrorMessage message={errors[id].message} />
 					: null
 			}
 

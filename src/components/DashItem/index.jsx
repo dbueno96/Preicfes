@@ -16,16 +16,16 @@ const DashItem = props => {
 		}[title]
 	}
 	return (
-		<Container>
-			<RouterLink to={`/${title}`}>
+		<RouterLink to={`/${title}`}>
+			<Container>
 				<Title>
 					{title}
 				</Title>
 				{
 					matchTitleWithIcon(title || 'Default')
 				}
-			</RouterLink>
-		</Container>
+			</Container>
+		</RouterLink>
 	)
 }
 
