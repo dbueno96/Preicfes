@@ -1,7 +1,8 @@
 export const RegularTheme = {
 	text: {
 		main: '#07404d',
-		alt: '#f2f2f2'
+		alt: '#f2f2f2',
+		disabled: '#888'
 	},
 	bg: {
 		main: '#07404d',

@@ -1,7 +1,7 @@
-const path = require('path');
-
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin')
 
 module.exports = {
 	mode: 'development',
@@ -26,7 +26,10 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin({
 			filename: './assets/[name].css',
-		})
+		}),
+		new MomentLocalesPlugin({
+			localesToKeep: ['en', 'es'],
+		}),
 	],
 	devServer: {
 		historyApiFallback: true,
@@ -36,28 +39,27 @@ module.exports = {
 	},
 	module: {
 		rules: [{
-				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: 'asset/resource',
-			}, {
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				},
-			}, {
-				test: /\.html$/,
-				use: [{
-					loader: 'html-loader',
-				}, ],
-			}, {
-				test: /\.css|.styl$/,
-				use: [{
-						loader: MiniCssExtractPlugin.loader,
-					},
-					'css-loader',
-					'stylus-loader',
-				],
+			test: /\.(png|svg|jpg|jpeg|gif)$/i,
+			type: 'asset/resource',
+		}, {
+			test: /\.(js|jsx)$/,
+			exclude: /node_modules/,
+			use: {
+				loader: 'babel-loader',
 			},
-		],
+		}, {
+			test: /\.html$/,
+			use: [{
+				loader: 'html-loader',
+			}, ],
+		}, {
+			test: /\.css|.styl$/,
+			use: [{
+					loader: MiniCssExtractPlugin.loader,
+				},
+				'css-loader',
+				'stylus-loader',
+			],
+		}, ],
 	},
 }
