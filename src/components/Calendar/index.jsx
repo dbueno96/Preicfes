@@ -10,9 +10,10 @@ const Calendar = () => {
 
 	const [date, setDate] = useState(moment().locale('es')),
 		[calendar, setCalendar] = useState([[]]),
+		[visibleModal, setVisibleModal] = useState(false),
 		[view, setView] = useState(0),
 		views = {
-			0: <DayCalendar date={date} setDate={setDate} calendar={calendar} setCalendar={setCalendar} view={view} setView={setView} />,
+			0: <DayCalendar date={date} setDate={setDate} calendar={calendar} setCalendar={setCalendar} view={view} setView={setView} visibleModal={visibleModal} setVisibleModal={setVisibleModal} />,
 			1: <MonthCalendar date={date} setDate={setDate} calendar={calendar} setCalendar={setCalendar} view={view} setView={setView} />,
 			2: <YearCalendar date={date} setDate={setDate} calendar={calendar} setCalendar={setCalendar} view={view} setView={setView} />
 		}
@@ -22,7 +23,6 @@ const Calendar = () => {
 
 	return (
 		views[view]
-
 	)
 }
 
