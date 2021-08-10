@@ -5,8 +5,6 @@ import { Container, Week, Day, DateNumber, DayContainer, WeekDays, DayName, Week
 
 const DayCalendar = props => {
 	const { date, setDate, calendar, setCalendar, view, setView } = props
-	console.log('Days Calendar: ', calendar)
-
 	return (
 		<Container>
 			<Header setDate={setDate} date={date} view={view} setView={setView} setCalendar={setCalendar} />

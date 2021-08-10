@@ -90,13 +90,13 @@ const TableContainer = props => {
 
 
 export const FullTable = props => {
-	const { items, query } = props
-	const { sortedItems, columnSort, sortedField } = useSortableData({ items })
+	const { items, headers, query } = props
+	const { sortedItems, columnSort, sortedField } = useSortableData({ headers, items })
 	const getClassNamesFor = (name) => {
 		if (!sortedField) {
-			return;
+			return
 		}
-		return sortedField.field === name ? sortedField.order : undefined;
+		return sortedField.field === name ? sortedField.order : null
 	}
 	const filteredItems = useFilter({ sortedItems, query })
 	return (
@@ -105,7 +105,7 @@ export const FullTable = props => {
 				<Thead>
 					<Row height={2.4}>
 						{
-							props.headers.map(header => (
+							Object.values(headers).map(header => (
 								<Head
 									onClick={() => columnSort(header)}
 									key={header}
@@ -120,9 +120,9 @@ export const FullTable = props => {
 					</Row>
 				</Thead>
 				{
-					filteredItems.length > 0 ?
+					items.length === filteredItems.length || filteredItems.length > 0 ?
 						<Rows items={filteredItems} />
-						: <Rows span={props.headers.length} />
+						: <Rows span={Object.keys(headers).length} />
 				}
 			</Table>
 		</TableContainer>
