@@ -9,9 +9,6 @@ const YearCalendar = props => {
 			setDate(year)
 			setView(1)
 		}
-	console.log('Year Calendar: ', calendar)
-
-
 	return (
 		<Container>
 			<Header setDate={setDate} date={date} view={view} setView={setView} setCalendar={setCalendar} />
