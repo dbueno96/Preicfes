@@ -12,4 +12,4 @@ const Modal = props => {
 
 }
 
-export default Modalnp
+export default Modal
