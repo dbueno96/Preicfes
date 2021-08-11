@@ -1,20 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import Nav from './components/Navbar'
-import FilterableTable from './components/FilterableTable'
-import New from './components/New'
-import DashItem from './components/DashItem'
-import DashBoard from './components/DashBoard'
-import Form from './components/Form'
 import {
-	GlobalStyles
-} from './styles/globalStyles'
-
-/* import {
-	globalStyles
-} from './styles/globalStyles' */
-
+	Provider
+} from 'react-redux'
+import store from './redux/store'
+import App from './App'
 
 const actions = ['EDIT', 'DELETE', 'VIEW']
 const testTable1 = [{
@@ -154,6 +144,9 @@ const testTable1 = [{
 
 
 
-ReactDOM.render( < App / > ,
+ReactDOM.render( <
+	Provider store={store}>
+		<App />
+	</Provider>,
 	document.getElementById('app')
 )

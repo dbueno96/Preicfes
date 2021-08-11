@@ -2,11 +2,12 @@ import { useState, useMemo } from 'react'
 import { capitalize } from '../utils/utils'
 
 export const useSortableData = params => {
+	const { headers } = params,
+		[sortedField, setSortedField] = useState({
+			field: null,
+			order: 'ASC'
+		})
 
-	const [sortedField, setSortedField] = useState({
-		field: null,
-		order: 'ASC'
-	})
 
 	const sortedItems = useMemo(() => {
 		let sortedItems = [...params.items]
@@ -31,7 +32,7 @@ export const useSortableData = params => {
 		let order = 'ASC'
 		if (sortedField.field === field && sortedField.order === 'ASC')
 			order = 'DESC'
-		setSortedField({ field, order })
+		setSortedField({ field: Object.keys(headers).find(key => headers[key] === field), order })
 	}
 
 	return { sortedItems, columnSort, sortedField }

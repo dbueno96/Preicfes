@@ -11,7 +11,6 @@ const Register = () => {
 		form = (path) => {
 
 			const entity = path.split('/')[1]
-			console.log(entity)
 			return {
 				Profesores: formEmpleados,
 				Clases: formClases,
