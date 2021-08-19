@@ -19,7 +19,8 @@ const DateField = props => {
 				min={min}
 				max={max}
 				required={required}
-				onInput={e => handleInput(e)} />
+				onInput={e => handleInput(e)}
+			/>
 			{
 				errors[id] ?
 					<ErrorMessage message={errors[id].message} />

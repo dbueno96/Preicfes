@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { getListData } from '../redux/actions/Request'
+import { getListData } from '../redux/actions/Main'
 
 export const useFetchListData = (entity) => {
 	const dispatch = useDispatch()

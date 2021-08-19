@@ -4,12 +4,14 @@ import { getInitialState } from '../services'
 import { initializeState } from '../redux/actions/Main'
 
 export const useInitializeStore = () => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch(),
+		store = useSelector(store => store)
 	useEffect(() => {
-		getInitialState()
-			.then(state => {
-				dispatch(initializeState(state))
-			})
+		if (!store)
+			getInitialState()
+				.then(state => {
+					dispatch(initializeState(state))
+				})
 	}, [])
 	return useSelector(state => state.data)
 }

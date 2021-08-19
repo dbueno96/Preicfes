@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import DashBoard from '../../components/DashBoard'
-import Schedule from '../Schedule'
 import { RouterLink } from '../../styles/globalStyles'
 
 const Home = () => {
