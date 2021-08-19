@@ -1,6 +1,7 @@
 import * as Actions from './actions'
 import {
-	fetchListData
+	fetchListData,
+	fetchFormConfig
 } from '../../../services'
 
 export const initializeState = state => ({
@@ -23,9 +24,29 @@ export const getListDataFailure = error => ({
 	payload: error
 })
 
-export const getListData = entity => (dispatch => {
-	dispatch(getListDataRequest())
-	fetchListData(entity)
-		.then(res => dispatch(getListDataSuccess(res)))
-		.catch(err => dispatch(getListDataFailure(err)))
+export const getListData = entity => (
+	dispatch => {
+		dispatch(getListDataRequest())
+		fetchListData(entity)
+			.then(res => dispatch(getListDataSuccess(res)))
+			.catch(err => dispatch(getListDataFailure(err)))
+	})
+
+export const getFormConfig = form => (
+	dispatch => {
+		dispatch(getListDataRequest())
+		fetchFormConfig(form)
+			.then(res => dispatch(getFormConfigSuccess(res)))
+			.catch(err => dispatch(getFormConfigFaulure(err)))
+	}
+)
+
+export const getFormConfigSuccess = payload => ({
+	type: Actions.GET_FORM_CONFIG_SUCCESS,
+	payload
+})
+
+export const getFormConfigFaulure = payload => ({
+	type: Actions.GET_FORM_CONFIG_FAILURE,
+	payload
 })

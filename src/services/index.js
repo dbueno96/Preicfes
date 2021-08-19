@@ -12,9 +12,16 @@ export const getInitialState = () => {
 
 export const fetchListData = entity => {
 	const res = axios.get(`${baseURL}/${entity}`)
-	debugger
 	return res
 		.then(res => res.data)
 		.catch(() => console.error(`Response error for ${entity}`))
+
+}
+
+export const fetchFormConfig = form => {
+	const res = axios.get(`${baseURL}/${form}`)
+	return res
+		.then(res => res.data)
+		.catch(() => console.error(`Response error for form ${form}`))
 
 }

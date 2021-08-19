@@ -17,7 +17,20 @@ const homeReducer = (state = [], action) => ({
 		loading: false,
 		data: [],
 		error: action.payload
-	}
+	},
+	[Actions.GET_FORM_CONFIG_SUCCESS]: {
+		...state,
+		loading: false,
+		data: action.payload,
+		error: ''
+	},
+	[Actions.GET_FORM_CONFIG_FAILURE]: {
+		...state,
+		loading: false,
+		error: action.payload,
+		data: []
+
+	},
 } [action.type] || state)
 
 export default homeReducer
