@@ -31,6 +31,17 @@ const homeReducer = (state = [], action) => ({
 		data: []
 
 	},
+	[Actions.SET_FORM_INITIAL_VALUES_FROM_DATA]: {
+		...state,
+		data: action.payload && action.payload.fields && action.payload.fields.map(item => {
+			console.log(action)
+			const valueData = action.payload.values && action.payload.values.find(value => value.id === item.id)
+			return valueData ? {
+				...item,
+				value: valueData.value
+			} : item
+		})
+	}
 } [action.type] || state)
 
 export default homeReducer

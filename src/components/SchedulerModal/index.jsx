@@ -20,29 +20,26 @@ const ModalHeader = props => {
 
 
 const Modal = props => {
-	const { visible, header, main, body, footer, side, hideModal, modalRef, backgroundClick } = props,
+	const { header, main, body, footer, side, hideModal, modalRef, backgroundClick, data } = props,
 		fetchData = useSelector(state => state.data)
 	useFetchFormConfig('formClases')
-	console.log(fetchData)
 	return (
-		visible ?
-			<Container ref={modalRef} onClick={backgroundClick}>
-				<ModalContainer>
-					<Side config={{ ...side }} />
-					<Main config={{ ...main }}>
-						<ModalHeader title={'Default title'} config={{ ...header }} hideModal={hideModal} />
-						<Body config={{ ...body }} >
-							{
-								fetchData ?
-									<Form fields={fetchData} />
-									: null}
-						</Body>
+		<Container ref={modalRef} onClick={backgroundClick}>
+			<ModalContainer>
+				<Side config={{ ...side }} />
+				<Main config={{ ...main }}>
+					<ModalHeader title={'Default title'} config={{ ...header }} hideModal={hideModal} />
+					<Body config={{ ...body }} >
+						{
+							fetchData ?
+								<Form fields={fetchData} initialValues={data} />
+								: null}
+					</Body>
 
-					</Main>
-					<Footer config={{ ...footer }} />
-				</ModalContainer>
-			</Container>
-			: null
+				</Main>
+				<Footer config={{ ...footer }} />
+			</ModalContainer>
+		</Container>
 	)
 
 }

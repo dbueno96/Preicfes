@@ -50,3 +50,8 @@ export const getFormConfigFaulure = payload => ({
 	type: Actions.GET_FORM_CONFIG_FAILURE,
 	payload
 })
+
+export const setFormInitialValuesFromData = payload => ({
+	type: Actions.SET_FORM_INITIAL_VALUES_FROM_DATA,
+	payload
+})

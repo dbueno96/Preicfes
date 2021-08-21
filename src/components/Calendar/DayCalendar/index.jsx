@@ -8,7 +8,7 @@ import { BsPlus } from 'react-icons/bs'
 
 const DayCalendar = props => {
 	const { date, setDate, calendar, setCalendar, view, setView } = props,
-		{ showModal, hideModal, visible, modalRef, backgroundClick } = useToggleModal()
+		{ showModal, hideModal, visible, modalRef, backgroundClick, data } = useToggleModal()
 
 	return (
 		<Container>
@@ -34,7 +34,7 @@ const DayCalendar = props => {
 									selected={isSelected(day, date)}
 									before={beforeToday(day)}
 									today={isToday(day)}
-									onClick={() => showModal()}
+									onClick={() => showModal(day)}
 									key={day.format('D').toString()}>
 									<Day >
 										<DateNumber>
@@ -51,7 +51,12 @@ const DayCalendar = props => {
 					</Week>
 				))
 			}
-			<Modal visible={visible} hideModal={hideModal} modalRef={modalRef} backgroundClick={backgroundClick} />
+			{
+				visible ?
+					<Modal visible={visible} hideModal={hideModal} modalRef={modalRef} backgroundClick={backgroundClick} data={data} />
+					: null
+			}
+
 		</Container >
 	)
 }
