@@ -10,7 +10,9 @@ import { useFetchListData } from '../../hooks/useFetchListData'
 const List = () => {
 	const { title } = useParams(),
 		options = ['Profesores', 'Cursos', 'Estudiantes', 'Clases', 'Convenios'],
-		fetchData = useSelector(state => state.data)
+		fetchData = useSelector(state => state.data),
+		headers = fetchData && fetchData.headers,
+		items = fetchData && fetchData.data
 	useFetchListData(title)
 	return (
 		<>
@@ -18,7 +20,7 @@ const List = () => {
 			<Title title={title}>
 				<New entity={title} />
 			</Title>
-			<FilterableTable items={fetchData.data || []} headers={fetchData.headers || []} />
+			<FilterableTable items={items || []} headers={headers || []} />
 		</>
 	)
 }
