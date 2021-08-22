@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react'
 import TField from './TextField'
 import NumberField from './NumberField'
 import DateField from './DateField'
 import { Label, OuterList, Button, Input, Field, DefaultForm, Container, Buttons } from './styles'
-import { setFormInitialValuesFromData } from '../../redux/actions/Main'
+import { useFormInitialValues } from '../../hooks/useFormInitialValues'
 const Form = props => {
 	const { fields, initialValues } = props,
 		[values, setValues] = useState({}),
@@ -41,11 +40,8 @@ const Form = props => {
 		onReset = () => {
 			setValues({})
 			setErrors({})
-		},
-		dispatch = useDispatch()
-	useEffect(() => {
-		dispatch(setFormInitialValuesFromData({ fields, values: initialValues }))
-	}, [])
+		}
+	useFormInitialValues({ fields, initialValues })
 	return (
 		<Container>
 			<DefaultForm>
