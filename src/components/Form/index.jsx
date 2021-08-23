@@ -3,8 +3,9 @@ import TField from './TextField'
 import NumberField from './NumberField'
 import DateField from './DateField'
 import { Label, OuterList, Button, Input, Field, DefaultForm, Container, Buttons } from './styles'
+import { useFormInitialValues } from '../../hooks/useFormInitialValues'
 const Form = props => {
-	const { fields } = props,
+	const { fields, initialValues } = props,
 		[values, setValues] = useState({}),
 		[errors, setErrors] = useState({}),
 		handleError = (field, error) => {
@@ -15,11 +16,11 @@ const Form = props => {
 		},
 		matchConfigToField = config => {
 			if (['text', 'email'].includes(config.type))
-				return <TField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
+				return <TField htmlFor={config.id} {...config} value={values[config.id] || config.value} setValue={handleOnChange} errors={errors} setErrors={handleError} />
 			if (['number', 'decimal', 'currency'].includes(config.type))
-				return <NumberField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
+				return <NumberField htmlFor={config.id} {...config} value={values[config.id] || config.value} setValue={handleOnChange} errors={errors} setErrors={handleError} />
 			if (['date', 'type', 'datetime'].includes(config.type))
-				return <DateField htmlFor={config.id} {...config} value={values[config.id]} setValue={handleOnChange} errors={errors} setErrors={handleError} />
+				return <DateField htmlFor={config.id} {...config} value={values[config.id] || config.value} setValue={handleOnChange} errors={errors} setErrors={handleError} />
 			return (
 				<>
 					<Label htmlFor={config.id}>{config.label}</Label>
@@ -40,6 +41,7 @@ const Form = props => {
 			setValues({})
 			setErrors({})
 		}
+	useFormInitialValues({ fields, initialValues })
 	return (
 		<Container>
 			<DefaultForm>

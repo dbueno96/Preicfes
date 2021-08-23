@@ -3,7 +3,7 @@ import ErrorMessage from '../ErrorMessage'
 import { Input, Label } from '../styles'
 
 const DateField = props => {
-	const { type, label, id, placeholder, disabled, max, min, required, value, setValue, errors, setErrors } = props
+	const { type, label, id, placeholder, disabled, max, min, required, value, setValue, errors } = props
 	const handleInput = e => {
 		//validateDateField({ input: e.target.value, setErrors, max, min, type, required, id })
 		setValue(id, e.target.value)
@@ -19,7 +19,8 @@ const DateField = props => {
 				min={min}
 				max={max}
 				required={required}
-				onInput={e => handleInput(e)} />
+				onInput={e => handleInput(e)}
+			/>
 			{
 				errors[id] ?
 					<ErrorMessage message={errors[id].message} />

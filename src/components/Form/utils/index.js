@@ -18,7 +18,6 @@ export const isValidNumberField = args => {
 	result = min && isValidMinValue(input, min)
 	if (result)
 		return result
-	debugger
 	result = minLength && isValidMinLength(input, minLength)
 	if (result)
 		return result
