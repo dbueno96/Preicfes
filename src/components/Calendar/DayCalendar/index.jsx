@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from '../Header'
 import Modal from '../../SchedulerModal'
+import CalendarEventSummary from '../Event'
 import { beforeToday, isToday, isSelected } from '../utils'
 import { useToggleModal } from '../../../hooks/useToggleModal'
 import { Container, Week, Day, DateNumber, DayContainer, WeekDays, DayName, WeekDayContainer } from './styles'
-import { BsPlus } from 'react-icons/bs'
 
 const DayCalendar = props => {
 	const { date, setDate, calendar, setCalendar, view, setView } = props,
@@ -42,8 +42,12 @@ const DayCalendar = props => {
 												day.format('D').toString()
 											}
 										</DateNumber>
-										<BsPlus />
+										{
+											isToday(day) ?
+												<CalendarEventSummary />
+												: null
 
+										}
 									</Day>
 								</DayContainer>
 							))

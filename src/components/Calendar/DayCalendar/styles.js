@@ -31,6 +31,7 @@ export const DayContainer = styled.div `
 export const Day = styled.div `
 	display: flex;
 	padding: 0.2rem;
+	width: 100%;
 	height: 100%;
 	background-color: inherit;
 	color:inherit;
