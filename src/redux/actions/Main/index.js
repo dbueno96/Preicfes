@@ -55,3 +55,8 @@ export const setFormInitialValuesFromData = payload => ({
 	type: Actions.SET_FORM_INITIAL_VALUES_FROM_DATA,
 	payload
 })
+
+export const getScheduledEvents = payload => ({
+	type: Actions.GET_SCHEDULED_EVENTS,
+	payload
+})

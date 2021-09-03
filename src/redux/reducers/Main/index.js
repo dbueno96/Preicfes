@@ -34,13 +34,18 @@ const homeReducer = (state = [], action) => ({
 	[Actions.SET_FORM_INITIAL_VALUES_FROM_DATA]: {
 		...state,
 		data: action.payload && action.payload.fields && action.payload.fields.map(item => {
-			console.log(action)
 			const valueData = action.payload.values && action.payload.values.find(value => value.id === item.id)
 			return valueData ? {
 				...item,
 				value: valueData.value
 			} : item
 		})
+	},
+	[Actions.GET_SCHEDULED_EVENTS]: {
+		...state,
+		loading: false,
+		error: '',
+		data: action.payload
 	}
 } [action.type] || state)
 
