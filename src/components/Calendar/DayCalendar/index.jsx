@@ -4,7 +4,7 @@ import Modal from '../../SchedulerModal'
 import CalendarEventSummary from '../Event'
 import { beforeToday, isToday, isSelected } from '../utils'
 import { useToggleModal } from '../../../hooks/useToggleModal'
-import { Container, Week, Day, DateNumber, DayContainer, WeekDays, DayName, WeekDayContainer } from './styles'
+import { Container, Week, Day, DateNumber, DayContainer, WeekDays, DayName, WeekDayContainer, EventListContainer } from './styles'
 import { useFetchScheduledEvents } from '../../../hooks/useFetchScheduledEvents'
 import { useScheduledEventCheck } from '../../../hooks/useScheduledEventCheck'
 
@@ -42,7 +42,7 @@ const CalendarWeek = ({ i, showModal, week, date }) => (
 )
 
 const CalendarDay = ({ day, date, showModal }) => {
-	const { dateEvents } = useScheduledEventCheck({ day: day })
+	const { dateEvents } = useScheduledEventCheck({ day: day }) || []
 	return (
 		<DayContainer
 			selected={isSelected(day, date)}
@@ -56,17 +56,13 @@ const CalendarDay = ({ day, date, showModal }) => {
 						day.format('D').toString()
 					}
 				</DateNumber>
-				{
-					isToday(day) ?
-						<CalendarEventSummary />
-						: null
-
-				}
-				{
-					dateEvents && dateEvents.map(event => (
-						<CalendarEventSummary key={JSON.stringify(event).trim()} event={event} />
-					))
-				}
+				<EventListContainer>
+					{
+						dateEvents && dateEvents.length && dateEvents.map(event => (
+							<CalendarEventSummary key={JSON.stringify(event).trim()} event={event} />
+						))
+					}
+				</EventListContainer>
 			</Day>
 		</DayContainer>
 	)

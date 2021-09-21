@@ -78,3 +78,10 @@ export const DayName = styled.div `
 		cursor: default;
 	}
 `
+
+export const EventListContainer = styled.div `
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+`

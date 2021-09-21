@@ -6,6 +6,7 @@ export const Container = styled.div `
 	background: ${props => props.theme.bg.main};
 	display: flex;
 	border-radius: 5px;
+	margin-bottom: 0.2rem;
 	* {
 		font-size: 0.7rem;
 	}

@@ -2,8 +2,9 @@ import React from 'react'
 import { useBooleanState } from '../../../hooks/useBooleanState'
 import { Class, ClassContainer, Container, Info, Time, TimeContainer } from './styles'
 
-const CalendarEventSummary = () => {
-	const state= useBooleanState(false),
+const CalendarEventSummary = ({ event }) => {
+	const { course, time } = event,
+		state = useBooleanState(false),
 		mouseOver = state.value,
 		mouseEntered = state.activate,
 		mouseOut = state.deactivate
@@ -14,16 +15,15 @@ const CalendarEventSummary = () => {
 				onMouseLeave={mouseOut}>
 				<TimeContainer>
 					<Time>
-						3:00pm
+						{time}
 					</Time>
 				</TimeContainer>
 				<ClassContainer>
 					<Class mouseOver={mouseOver}>
-						Lectura crítica
+						{course}
 					</Class>
 				</ClassContainer>
 			</Info>
-
 		</Container>
 	)
 }
