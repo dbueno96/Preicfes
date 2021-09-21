@@ -43,9 +43,21 @@ const homeReducer = (state = [], action) => ({
 	},
 	[Actions.GET_SCHEDULED_EVENTS]: {
 		...state,
+		loading: true,
+		error: '',
+		events: []
+	},
+	[Actions.GET_SCHEDULED_EVENTS_SUCCESS]: {
+		...state,
 		loading: false,
 		error: '',
-		data: action.payload
+		events: action.payload
+	},
+	[Actions.GET_SCHEDULED_EVENTS_FAILURE]: {
+		...state,
+		loading: false,
+		error: action.payload,
+		events: []
 	}
 } [action.type] || state)
 

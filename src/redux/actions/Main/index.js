@@ -1,7 +1,8 @@
 import * as Actions from './actions'
 import {
 	fetchListData,
-	fetchFormConfig
+	fetchFormConfig,
+	fetchScheduledEvents
 } from '../../../services'
 
 export const initializeState = state => ({
@@ -56,7 +57,23 @@ export const setFormInitialValuesFromData = payload => ({
 	payload
 })
 
-export const getScheduledEvents = payload => ({
-	type: Actions.GET_SCHEDULED_EVENTS,
+export const getScheduledEvents = date => {
+	return (
+		dispatch => {
+			dispatch(getListDataRequest())
+			fetchScheduledEvents(date)
+				.then(res => dispatch(getScheduledEventsSuccess(res)))
+				.catch(err => dispatch(getScheduledEventsFailure(err)))
+		}
+	)
+}
+
+export const getScheduledEventsSuccess = payload => ({
+	type: Actions.GET_SCHEDULED_EVENTS_SUCCESS,
+	payload
+})
+
+export const getScheduledEventsFailure = payload => ({
+	type: Actions.GET_SCHEDULED_EVENTS_FAILURE,
 	payload
 })

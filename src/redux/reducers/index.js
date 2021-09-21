@@ -1,5 +1,4 @@
 import homeReducer from './Main'
-import requestReducer from './Request'
 import {
 	combineReducers
 } from 'redux'
@@ -7,7 +6,6 @@ import {
 
 export const reducer = combineReducers({
 	home: homeReducer,
-	request: requestReducer
 })
 
 export default homeReducer
